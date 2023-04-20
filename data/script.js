@@ -11,10 +11,10 @@ var gaugeTemp = new LinearGauge({
   startAngle: 90,
   ticksAngle: 180,
   maxValue: 40,
-  colorValueBoxRect: "#049faa",
-  colorValueBoxRectEnd: "#049faa",
+  colorValueBoxRect: "#ffffff",
+  colorValueBoxRectEnd: "#ffffff",
   colorValueBoxBackground: "#f1fbfc",
-  valueDec: 2,
+  valueDec: 1,
   valueInt: 2,
   majorTicks: [
       "0",
@@ -59,31 +59,39 @@ var gaugeHum = new RadialGauge({
   units: "Humidity (%)",
   minValue: 0,
   maxValue: 100,
-  colorValueBoxRect: "#049faa",
-  colorValueBoxRectEnd: "#049faa",
+   colorPlate: "#fff",
+  colorValueBoxRect: "#ffffff",
+  colorValueBoxRectEnd: "#ffffff",
   colorValueBoxBackground: "#f1fbfc",
   valueInt: 2,
+  valueDec: 1,
   majorTicks: [
       "0",
+      "10",
       "20",
+      "30",
       "40",
+	  "50",
       "60",
+      "70",
       "80",
+      "90",
       "100"
 
   ],
-  minorTicks: 4,
+  minorTicks: 10,
   strokeTicks: true,
+  highlightsWidth: 8,
   highlights: [
       {
           "from": 80,
           "to": 100,
-          "color": "#03C0C1"
+          "color": "#CC2936"
       }
   ],
-  colorPlate: "#fff",
-  borderShadowWidth: 0,
-  borders: false,
+ 
+  borderShadowWidth: 2,
+  borders: true,
   needleType: "line",
   colorNeedle: "#007F80",
   colorNeedleEnd: "#007F80",
