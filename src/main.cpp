@@ -16,8 +16,8 @@
 #include <Adafruit_Sensor.h>
 
 // Replace with your network credentials
-const char* ssid = "REPLACE_WITH_YOUR_SSID";
-const char* password = "REPLACE_WITH_YOUR_PASSWORD";
+const char* ssid = "PHD1 2.4";
+const char* password = "Andrew1Laura2";
 
 // Create AsyncWebServer object on port 80
 AsyncWebServer server(80);
@@ -30,26 +30,29 @@ JSONVar readings;
 
 // Timer variables
 unsigned long lastTime = 0;  
-unsigned long timerDelay = 30000;
+unsigned long timerDelay = 10000;
 
 // Create a sensor object
 Adafruit_BME280 bme;         // BME280 connect to ESP32 I2C (GPIO 21 = SDA, GPIO 22 = SCL)
 
 // Init BME280
-void initBME(){
+/* void initBME(){
   if (!bme.begin(0x76)) {
     Serial.println("Could not find a valid BME280 sensor, check wiring!");
     while (1);
   }
-}
+} */
 
 // Get Sensor Readings and return JSON object
 String getSensorReadings(){
-  readings["temperature"] = String(bme.readTemperature());
-  readings["humidity"] =  String(bme.readHumidity());
+  //readings["temperature"] = String(bme.readTemperature());
+  //readings["humidity"] =  String(bme.readHumidity());
   String jsonString = JSON.stringify(readings);
+
+  readings["temperature"] = String(random(5,25));
+  readings["humidity"] =  String(random(40,75));
   return jsonString;
-}
+} 
 
 // Initialize LittleFS
 void initFS() {
@@ -73,7 +76,7 @@ void initWiFi() {
 
 void setup() {
   Serial.begin(115200);
-  initBME();
+  //initBME();
   initWiFi();
   initFS();
 
